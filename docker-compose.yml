@@ -1,0 +1,59 @@
+version: '3'
+services:
+    database:
+        image: "postgres"
+        container_name: "pg-docker"
+        ports:
+            - "5432:5432"
+        environment:
+            - POSTGRES_USER=hxycdb
+            - POSTGRES_PASSWORD=hxyc2020
+            - POSTGRES_DB=hxyc_apk
+        volumes:
+            - api:/home/hxyc/apkcenter_app
+            - ./data:/var/lib/posgresql/data/
+        restart: always
+        networks:
+            - apkcenter
+    backend:
+        build: ./backend
+        stdin_open: true
+        tty: true
+        depends_on:
+            - database
+        ports:
+            - "8686:8686"
+        restart: on-failure
+        networks:
+            - apkcenter
+        volumes:
+            - ./apks:/app/apks/
+
+    frontend:
+        build: ./frontend
+        depends_on:
+            - backend
+        ports:
+            - "8001:80"
+        restart: on-failure
+        networks:
+            - apkcenter
+
+    fileserver:
+        image: nginx
+        restart: always
+        container_name: fileserver
+        volumes:
+            - ${PWD}/conf:/etc/nginx/conf.d
+            - ./apks:/usr/share/apks  
+        ports:
+            - "8002:8002"
+        networks:
+            - apkcenter
+
+volumes:
+    api:
+
+networks:
+    apkcenter:
+        driver: bridge
