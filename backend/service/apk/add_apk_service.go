@@ -1,6 +1,7 @@
 package apk
 
 import (
+	"file-upload/conf"
 	"file-upload/models"
 	"file-upload/serializer"
 	"time"
@@ -21,7 +22,7 @@ func (service *AddApkService) Add() (models.Apk, *serializer.Response) {
 		FileSize:       service.FileSize,
 		ApkVersion:     service.ApkVersion,
 		ApkDescription: service.ApkDescription,
-		ApkDownloadUrl: "http://192.168.100.132:8002/" + service.FileName,
+		ApkDownloadUrl: conf.DownloadUrlPrefix + service.FileName,
 		UploadTime:     service.UploadTime,
 		UploadBy:       service.UploadBy,
 	}
