@@ -3,6 +3,8 @@ package apk
 import (
 	"file-upload/models"
 	"file-upload/serializer"
+	"os"
+	"path/filepath"
 )
 
 type DeleteApkService struct {
@@ -24,6 +26,10 @@ func (service *DeleteApkService) Delete(id string) *serializer.Response {
 			Msg:  "删除文件失败",
 		}
 	}
+
+	filename := apk.FileName
+	filePath, _ := filepath.Abs("/app/apks/" + filename)
+	os.Remove(filePath)
 
 	return &serializer.Response{
 		Code: 0,

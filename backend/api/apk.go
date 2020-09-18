@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"time"
 )
 
 // @Summary 上传apk
@@ -27,16 +28,15 @@ func AddApk(c *gin.Context) {
 		return
 	}
 
-	//execute, _ := os.Executable()
-	//executePath := filepath.Dir(execute)
-	filename, _ := filepath.Abs("/app/apks/" + file.Filename)
-	if err := c.SaveUploadedFile(file, filename); err != nil {
+	filename := file.Filename[0:len(file.Filename)-4] + "_" + time.Now().Format("20060102150405") + ".apk"
+	filePath, _ := filepath.Abs("/app/apks/" + filename)
+	if err := c.SaveUploadedFile(file, filePath); err != nil {
 		c.JSON(http.StatusOK, ErrorResponse(err))
 		return
 	}
 
 	// 修改权限
-	if err := os.Chown(filename, 1001, 1002); err != nil {
+	if err := os.Chown(filePath, 1001, 1002); err != nil {
 		c.JSON(http.StatusBadRequest, serializer.Response{
 			Code: 40000,
 			Msg:  "chown file err: " + err.Error(),
@@ -45,9 +45,9 @@ func AddApk(c *gin.Context) {
 	}
 
 	if err := c.ShouldBind(&service); err == nil {
-		service.FileName = getApkInfo(filename).Name()
-		service.FileSize = getApkInfo(filename).Size()
-		service.UploadTime = getApkInfo(filename).ModTime()
+		service.FileName = getApkInfo(filePath).Name()
+		service.FileSize = getApkInfo(filePath).Size()
+		service.UploadTime = getApkInfo(filePath).ModTime()
 		if apk, err := service.Add(); err != nil {
 			c.JSON(http.StatusOK, err)
 		} else {
