@@ -1,0 +1,111 @@
+Starting 72e83bf9a442_pg-docker ... 
+Starting fileserver             ... 
+[1A[2KStarting fileserver             ... [32mdone[0m[1B[2A[2KStarting 72e83bf9a442_pg-docker ... [32mdone[0m[2BStarting apkcenter_backend_1    ... 
+[1A[2KStarting apkcenter_backend_1    ... [32mdone[0m[1BStarting apkcenter_frontend_1   ... 
+[1A[2KStarting apkcenter_frontend_1   ... [32mdone[0m[1BAttaching to fileserver, 72e83bf9a442_pg-docker, apkcenter_backend_1, apkcenter_frontend_1
+[36mfileserver    |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[36mfileserver    |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[36mfileserver    |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[36mfileserver    |[0m 10-listen-on-ipv6-by-default.sh: error: /etc/nginx/conf.d/default.conf is not a file or does not exist
+[36mfileserver    |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[36mfileserver    |[0m /docker-entrypoint.sh: Configuration complete; ready for start up
+[33m72e83bf9a442_pg-docker |[0m 
+[33m72e83bf9a442_pg-docker |[0m PostgreSQL Database directory appears to contain a database; Skipping initialization
+[33m72e83bf9a442_pg-docker |[0m 
+[33m72e83bf9a442_pg-docker |[0m 2020-09-18 01:52:00.665 UTC [1] LOG:  starting PostgreSQL 12.4 (Debian 12.4-1.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+[33m72e83bf9a442_pg-docker |[0m 2020-09-18 01:52:00.665 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[33m72e83bf9a442_pg-docker |[0m 2020-09-18 01:52:00.665 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[33m72e83bf9a442_pg-docker |[0m 2020-09-18 01:52:00.667 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[32mbackend_1     |[0m [GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+[32mbackend_1     |[0m 
+[32mbackend_1     |[0m [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+[32mbackend_1     |[0m  - using env:	export GIN_MODE=release
+[32mbackend_1     |[0m  - using code:	gin.SetMode(gin.ReleaseMode)
+[32mbackend_1     |[0m 
+[32mbackend_1     |[0m [GIN-debug] POST   /upload                   --> file-upload/router.NewRouter.func1 (4 handlers)
+[32mbackend_1     |[0m [GIN-debug] GET    /files                    --> file-upload/router.NewRouter.func2 (4 handlers)
+[32mbackend_1     |[0m [GIN-debug] POST   /api/v1/ping              --> file-upload/api.Ping (4 handlers)
+[32mbackend_1     |[0m [GIN-debug] POST   /api/v1/apks              --> file-upload/api.AddApk (4 handlers)
+[32mbackend_1     |[0m [GIN-debug] DELETE /api/v1/apks              --> file-upload/api.DeleteApk (4 handlers)
+[32mbackend_1     |[0m [GIN-debug] PUT    /api/v1/apks              --> file-upload/api.EditApk (4 handlers)
+[32mbackend_1     |[0m [GIN-debug] GET    /api/v1/apks              --> file-upload/api.ListApk (4 handlers)
+[32mbackend_1     |[0m [GIN-debug] Listening and serving HTTP on 0.0.0.0:8686
+[35mfrontend_1    |[0m /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+[35mfrontend_1    |[0m /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+[35mfrontend_1    |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+[35mfrontend_1    |[0m 10-listen-on-ipv6-by-default.sh: error: IPv6 listen already enabled
+[35mfrontend_1    |[0m /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+[33m72e83bf9a442_pg-docker |[0m 2020-09-18 01:52:00.678 UTC [24] LOG:  database system was shut down at 2020-09-18 01:50:24 UTC
+[35mfrontend_1    |[0m /docker-entrypoint.sh: Configuration complete; ready for start up
+[33m72e83bf9a442_pg-docker |[0m 2020-09-18 01:52:00.681 UTC [1] LOG:  database system is ready to accept connections
+[35mfrontend_1    |[0m 192.168.100.62 - - [18/Sep/2020:01:52:11 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" "-"
+[35mfrontend_1    |[0m 192.168.100.62 - - [18/Sep/2020:01:52:12 +0000] "GET /favicon.ico HTTP/1.1" 200 4286 "http://192.168.100.132:8001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" "-"
+[32mbackend_1     |[0m 
+[32mbackend_1     |[0m [35m(/app/service/apk/list_apk_service.go:23)[0m 
+[32mbackend_1     |[0m [33m[2020-09-18 01:52:12][0m  [36;1m[1.89ms][0m  SELECT count(*) FROM "apk"  WHERE "apk"."deleted_at" IS NULL  
+[32mbackend_1     |[0m [36;31m[0 rows affected or returned ][0m 
+[32mbackend_1     |[0m 
+[32mbackend_1     |[0m [35m(/app/service/apk/list_apk_service.go:30)[0m 
+[32mbackend_1     |[0m [33m[2020-09-18 01:52:12][0m  [36;1m[1.66ms][0m  SELECT * FROM "apk"  WHERE "apk"."deleted_at" IS NULL ORDER BY upload_time desc LIMIT 20 OFFSET 0  
+[32mbackend_1     |[0m [36;31m[1 rows affected or returned ][0m 
+[32mbackend_1     |[0m [GIN] 2020/09/18 - 01:52:12 |[97;42m 200 [0m|    4.342113ms |  192.168.100.62 |[97;44m GET     [0m /api/v1/apks
+[35mfrontend_1    |[0m 192.168.100.167 - - [18/Sep/2020:02:13:33 +0000] "GET / HTTP/1.1" 200 1071 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" "-"
+[35mfrontend_1    |[0m 192.168.100.167 - - [18/Sep/2020:02:13:33 +0000] "GET /css/chunk-vendors.06ed4abe.css HTTP/1.1" 200 312029 "http://192.168.100.132:8001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" "-"
+[35mfrontend_1    |[0m 192.168.100.167 - - [18/Sep/2020:02:13:33 +0000] "GET /js/app.8146ab64.js HTTP/1.1" 200 17113 "http://192.168.100.132:8001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" "-"
+[35mfrontend_1    |[0m 192.168.100.167 - - [18/Sep/2020:02:13:33 +0000] "GET /js/chunk-vendors.344d14c5.js HTTP/1.1" 200 431459 "http://192.168.100.132:8001/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" "-"
+[32mbackend_1     |[0m 
+[32mbackend_1     |[0m [35m(/app/service/apk/list_apk_service.go:23)[0m 
+[32mbackend_1     |[0m [33m[2020-09-18 02:13:33][0m  [36;1m[8.61ms][0m  SELECT count(*) FROM "apk"  WHERE "apk"."deleted_at" IS NULL  
+[32mbackend_1     |[0m [36;31m[0 rows affected or returned ][0m 
+[32mbackend_1     |[0m 
+[32mbackend_1     |[0m [35m(/app/service/apk/list_apk_service.go:30)[0m 
+[32mbackend_1     |[0m [33m[2020-09-18 02:13:33][0m  [36;1m[0.56ms][0m  SELECT * FROM "apk"  WHERE "apk"."deleted_at" IS NULL ORDER BY upload_time desc LIMIT 20 OFFSET 0  
+[32mbackend_1     |[0m [36;31m[1 rows affected or returned ][0m 
+[32mbackend_1     |[0m [GIN] 2020/09/18 - 02:13:33 |[97;42m 200 [0m|    9.380936ms | 192.168.100.167 |[97;44m GET     [0m /api/v1/apks
+[32mbackend_1     |[0m 
+[32mbackend_1     |[0m [35m(/app/service/apk/add_apk_service.go:30)[0m 
+[32mbackend_1     |[0m [33m[2020-09-18 02:14:16][0m  [36;1m[1.87ms][0m  INSERT  INTO "apk" ("created_at","updated_at","deleted_at","file_name","file_size","apk_version","apk_description","apk_download_url","upload_time","upload_by","delete_by","state") VALUES ('2020-09-18 02:14:16','2020-09-18 02:14:16',NULL,'hxyc_driver_v212_debug.apk',44177395,'','阿里测试环境包','http://192.168.100.132:8002/hxyc_driver_v212_debug.apk','2020-09-18 02:14:16','zhangyan','','') RETURNING "apk"."id"  
+[32mbackend_1     |[0m [36;31m[1 rows affected or returned ][0m 
+[32mbackend_1     |[0m [GIN] 2020/09/18 - 02:14:16 |[97;42m 200 [0m|  3.765356503s | 192.168.100.167 |[97;46m POST    [0m /api/v1/apks
+[32mbackend_1     |[0m 
+[32mbackend_1     |[0m [35m(/app/service/apk/list_apk_service.go:23)[0m 
+[32mbackend_1     |[0m [33m[2020-09-18 02:14:16][0m  [36;1m[0.37ms][0m  SELECT count(*) FROM "apk"  WHERE "apk"."deleted_at" IS NULL  
+[32mbackend_1     |[0m [36;31m[0 rows affected or returned ][0m 
+[32mbackend_1     |[0m 
+[32mbackend_1     |[0m [35m(/app/service/apk/list_apk_service.go:30)[0m 
+[32mbackend_1     |[0m [33m[2020-09-18 02:14:16][0m  [36;1m[0.56ms][0m  SELECT * FROM "apk"  WHERE "apk"."deleted_at" IS NULL ORDER BY upload_time desc LIMIT 20 OFFSET 0  
+[32mbackend_1     |[0m [36;31m[2 rows affected or returned ][0m 
+[32mbackend_1     |[0m [GIN] 2020/09/18 - 02:14:16 |[97;42m 200 [0m|    1.013505ms | 192.168.100.167 |[97;44m GET     [0m /api/v1/apks
+[36mfileserver    |[0m 192.168.100.44 - - [18/Sep/2020:02:14:55 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 200 154880 "-" "Mozilla/5.0 (Linux; U; Android 10; zh-CN; PCLM10 Build/QKQ1.191021.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 UCBrowser/13.1.2.1092 Mobile Safari/537.36" "-"
+[36mfileserver    |[0m 192.168.100.44 - - [18/Sep/2020:02:15:01 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 206 8811696 "-" "Mozilla/5.0 (Linux; U; Android 10; zh-CN; PCLM10 Build/QKQ1.191021.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 UCBrowser/13.1.2.1092 Mobile Safari/537.36" "-"
+[36mfileserver    |[0m 192.168.100.44 - - [18/Sep/2020:02:15:02 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 206 8828362 "-" "Mozilla/5.0 (Linux; U; Android 10; zh-CN; PCLM10 Build/QKQ1.191021.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 UCBrowser/13.1.2.1092 Mobile Safari/537.36" "-"
+[36mfileserver    |[0m 192.168.100.44 - - [18/Sep/2020:02:15:03 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 206 8835479 "-" "Mozilla/5.0 (Linux; U; Android 10; zh-CN; PCLM10 Build/QKQ1.191021.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 UCBrowser/13.1.2.1092 Mobile Safari/537.36" "-"
+[36mfileserver    |[0m 192.168.100.44 - - [18/Sep/2020:02:15:03 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 206 8784919 "-" "Mozilla/5.0 (Linux; U; Android 10; zh-CN; PCLM10 Build/QKQ1.191021.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 UCBrowser/13.1.2.1092 Mobile Safari/537.36" "-"
+[36mfileserver    |[0m 192.168.100.44 - - [18/Sep/2020:02:15:03 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 206 9177344 "-" "Mozilla/5.0 (Linux; U; Android 10; zh-CN; PCLM10 Build/QKQ1.191021.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 UCBrowser/13.1.2.1092 Mobile Safari/537.36" "-"
+[36mfileserver    |[0m 192.168.100.9 - - [18/Sep/2020:02:17:58 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 200 186792 "-" "Mozilla/5.0 (Linux; Android 10; ALP-AL00 Build/HUAWEIALP-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36" "-"
+[36mfileserver    |[0m 192.168.100.9 - - [18/Sep/2020:02:18:07 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 206 14705705 "ext:/lp:home" "Mozilla/5.0 (Linux; Android 10; ALP-AL00 Build/HUAWEIALP-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36" "-"
+[36mfileserver    |[0m 192.168.100.9 - - [18/Sep/2020:02:18:07 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 206 14725798 "ext:/lp:home" "Mozilla/5.0 (Linux; Android 10; ALP-AL00 Build/HUAWEIALP-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36" "-"
+[36mfileserver    |[0m 192.168.100.9 - - [18/Sep/2020:02:18:09 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 206 15230064 "ext:/lp:home" "Mozilla/5.0 (Linux; Android 10; ALP-AL00 Build/HUAWEIALP-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36" "-"
+[36mfileserver    |[0m 192.168.100.9 - - [18/Sep/2020:02:32:01 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 206 1 "-" "Mozilla/5.0 (Linux; Android 10; ALP-AL00 Build/HUAWEIALP-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36" "-"
+[36mfileserver    |[0m 192.168.100.9 - - [18/Sep/2020:02:32:06 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 206 16011984 "ext:/lp:home" "Mozilla/5.0 (Linux; Android 10; ALP-AL00 Build/HUAWEIALP-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36" "-"
+[36mfileserver    |[0m 192.168.100.9 - - [18/Sep/2020:02:32:07 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 206 14725798 "ext:/lp:home" "Mozilla/5.0 (Linux; Android 10; ALP-AL00 Build/HUAWEIALP-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36" "-"
+[36mfileserver    |[0m 192.168.100.9 - - [18/Sep/2020:02:32:08 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 206 14698161 "ext:/lp:home" "Mozilla/5.0 (Linux; Android 10; ALP-AL00 Build/HUAWEIALP-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.36" "-"
+[36mfileserver    |[0m 192.168.100.125 - - [18/Sep/2020:02:53:57 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 200 169416 "-" "Mozilla/5.0 (Linux; Android 10; V1914A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36 VivoBrowser/8.3.11.0" "-"
+[36mfileserver    |[0m 192.168.100.125 - - [18/Sep/2020:02:53:57 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 200 99912 "-" "Mozilla/5.0 (Linux; Android 10; V1914A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36 VivoBrowser/8.3.11.0" "-"
+[36mfileserver    |[0m 192.168.100.125 - - [18/Sep/2020:02:54:27 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 206 1 "-" "Mozilla/5.0 (Linux; Android 10; V1914A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36 VivoBrowser/8.3.11.0" "-"
+[36mfileserver    |[0m 192.168.100.125 - - [18/Sep/2020:02:54:27 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 200 99912 "-" "Mozilla/5.0 (Linux; Android 10; V1914A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36 VivoBrowser/8.3.11.0" "-"
+[36mfileserver    |[0m 192.168.100.125 - - [18/Sep/2020:02:54:55 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 206 8835480 "-" "Mozilla/5.0 (Linux; Android 10; V1914A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36 VivoBrowser/8.3.11.0" "-"
+[36mfileserver    |[0m 192.168.100.125 - - [18/Sep/2020:02:55:00 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 206 8835480 "-" "Mozilla/5.0 (Linux; Android 10; V1914A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36 VivoBrowser/8.3.11.0" "-"
+[36mfileserver    |[0m 192.168.100.125 - - [18/Sep/2020:02:55:01 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 206 8835480 "-" "Mozilla/5.0 (Linux; Android 10; V1914A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36 VivoBrowser/8.3.11.0" "-"
+[36mfileserver    |[0m 192.168.100.125 - - [18/Sep/2020:02:55:02 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 200 9171632 "-" "Mozilla/5.0 (Linux; Android 10; V1914A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36 VivoBrowser/8.3.11.0" "-"
+[36mfileserver    |[0m 192.168.100.125 - - [18/Sep/2020:02:55:02 +0000] "GET /hxyc_driver_v212_debug.apk HTTP/1.1" 206 8835475 "-" "Mozilla/5.0 (Linux; Android 10; V1914A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36 VivoBrowser/8.3.11.0" "-"
+[36mfileserver    |[0m 192.168.100.125 - - [18/Sep/2020:03:10:02 +0000] "GET /passenger_v212_debug_09101644.apk HTTP/1.1" 404 555 "-" "Mozilla/5.0 (Linux; Android 10; V1914A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36 VivoBrowser/8.3.11.0" "-"
+[36mfileserver    |[0m 2020/09/18 03:10:02 [error] 19#19: *28 open() "/usr/share/apks/passenger_v212_debug_09101644.apk" failed (2: No such file or directory), client: 192.168.100.125, server: 127.0.0.1, request: "GET /passenger_v212_debug_09101644.apk HTTP/1.1", host: "192.168.100.132:8002"
+[36mfileserver    |[0m 2020/09/18 03:10:03 [error] 19#19: *28 open() "/usr/share/apks/favicon.ico" failed (2: No such file or directory), client: 192.168.100.125, server: 127.0.0.1, request: "GET /favicon.ico HTTP/1.1", host: "192.168.100.132:8002", referrer: "http://192.168.100.132:8002/passenger_v212_debug_09101644.apk"
+[36mfileserver    |[0m 192.168.100.125 - - [18/Sep/2020:03:10:03 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "http://192.168.100.132:8002/passenger_v212_debug_09101644.apk" "Mozilla/5.0 (Linux; Android 10; V1914A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36 VivoBrowser/8.3.11.0" "-"
+[36mfileserver    |[0m 192.168.100.125 - - [18/Sep/2020:03:10:20 +0000] "GET /passenger_v212_debug_09101644.apk HTTP/1.1" 404 555 "-" "Mozilla/5.0 (Linux; Android 10; V1914A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36 VivoBrowser/8.3.11.0" "-"
+[36mfileserver    |[0m 2020/09/18 03:10:20 [error] 19#19: *29 open() "/usr/share/apks/passenger_v212_debug_09101644.apk" failed (2: No such file or directory), client: 192.168.100.125, server: 127.0.0.1, request: "GET /passenger_v212_debug_09101644.apk HTTP/1.1", host: "192.168.100.132:8002"
+[36mfileserver    |[0m 2020/09/18 03:10:20 [error] 19#19: *29 open() "/usr/share/apks/favicon.ico" failed (2: No such file or directory), client: 192.168.100.125, server: 127.0.0.1, request: "GET /favicon.ico HTTP/1.1", host: "192.168.100.132:8002", referrer: "http://192.168.100.132:8002/passenger_v212_debug_09101644.apk"
+[36mfileserver    |[0m 192.168.100.125 - - [18/Sep/2020:03:10:20 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "http://192.168.100.132:8002/passenger_v212_debug_09101644.apk" "Mozilla/5.0 (Linux; Android 10; V1914A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36 VivoBrowser/8.3.11.0" "-"
+[36mfileserver    |[0m 2020/09/18 03:10:45 [error] 19#19: *30 open() "/usr/share/apks/passenger_v212_debug_09101644.apk" failed (2: No such file or directory), client: 192.168.100.125, server: 127.0.0.1, request: "GET /passenger_v212_debug_09101644.apk HTTP/1.1", host: "192.168.100.132:8002"
+[36mfileserver    |[0m 192.168.100.125 - - [18/Sep/2020:03:10:45 +0000] "GET /passenger_v212_debug_09101644.apk HTTP/1.1" 404 555 "-" "Mozilla/5.0 (Linux; Android 10; V1914A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36 VivoBrowser/8.3.11.0" "-"
